@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaks Resort</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /*style for the title*/
+        .title {
+            font-size: 48px;
+            font-weight: bold;
+            color: #333;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+            text-align: center;
+        }
+        /*navbar style*/
+        .navbar {
+        /* Green */
+            background-color: #228B22 !important;
+            padding-left: 20px;
+        }
+        .navbar-nav {
+            display: flex;
+            /*link spacing*/
+            gap: 20px;
+        }
+        .navbar-nav .nav-link {
+            color: white !important;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.2s ease, text-decoration 0.2s ease;
+        }
+        /*link hover effect*/
+        .navbar-nav .nav-link:hover {
+            color: black !important;
+            text-decoration: underline;
+        }
+        .navbar-brand img {
+            width: 50px;
+            height: 50px;
+            /*space between the links and logo*/
+            margin-right: 10px;
+        }
+
+    </style>
+</head>
+<body class="bg-light">
+<h1 class="title">Zak's Get Away Resort</h1>
+
+<!--fix the nav bar and align to the left side-->
+<nav class="navbar navbar-expand-sm navbar-dark">
+    <div class="container-fluid">
+        <!--inlcude logo and always have the bar aligned to the left-->
+        <a class="navbar-brand text-white d-flex align-items-center" href="#">
+            <img src="img/yurtlogo.png" alt="YurtLogo">
+
+        </a>
+
+        <!--adjust to hamburger if the device breakpoint is smaller than sm-->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!--include all links in the navbar and in collapsed view-->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="Yurts.html">Yurts</a></li>
+                <li class="nav-item"><a class="nav-link" href="activities.html">Activities</a></li>
+                <li class="nav-item"><a class="nav-link" href="reservations.html">Reservations</a></li>
+                <li class="nav-item"><a class="nav-link" href="comments.html">Comments</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<body class="bg-light">
+<div class="container">
+    <h1 class="content ps-4">Thank You <span id="customerName"></span> for Your Reservation!</h1>
+    <p class="content ps-4">Details for your reservation:</p>
+
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Field</th>
+            <th>Details</th>
+        </tr>
+        </thead>
+        <tbody id="reservationDetails">
+        <!--fill in reservation details-->
+        </tbody>
+    </table>
+</div>
+
+<script>
+    //⏺️get the res data from the localStorage
+    const reservationData = JSON.parse(localStorage.getItem('reservationData'));
+
+    if (reservationData) {
+    //⏺️display the users name
+        document.getElementById('customerName').textContent = `${reservationData.firstName} ${reservationData.lastName}`;
+        //⏺️get the table to display the reserve details
+        const tableBody = document.getElementById('reservationDetails');
+        //⏺️loop through each key value pair
+        for (const key in reservationData) {
+        //⏺️ensure the property matches the object
+        //⏺️create new row in the table
+            if (reservationData.hasOwnProperty(key)) {
+                const row = document.createElement('tr');
+                //⏺️field name
+                const cell1 = document.createElement('td');
+                //⏺️user input
+                const cell2 = document.createElement('td');
+                //⏺️format keys
+                cell1.textContent = key.replace(/([A-Z])/g, ' $1').toUpperCase();
+                //⏺️set corresponding data
+                cell2.textContent = reservationData[key];
+                //⏺️append cells to each row
+                row.appendChild(cell1);
+                row.appendChild(cell2);
+                //⏺️now append to row to the table
+                tableBody.appendChild(row);
+            }
+        }
+    }
+</script>
+</body>
+

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zaks Resort</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Style for the title */
+    .title {
+        font-size: 48px;
+        font-weight: bold;
+        color: #333;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    /* Navbar style */
+    .navbar {
+        background-color: #228B22 !important; /* Green */
+        padding-left: 20px;
+    }
+    .navbar-nav {
+        display: flex;
+        gap: 20px; /* Space between links */
+    }
+    .navbar-nav .nav-link {
+        color: white !important;
+        font-size: 18px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: color 0.2s ease, text-decoration 0.2s ease;
+    }
+    .navbar-nav .nav-link:hover {
+        color: black !important;
+        text-decoration: underline;
+    }
+    .navbar-brand img {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px; /* Space between logo and links */
+    }
+
+    /* Form Styling */
+    .form-container {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: 30px auto;
+        width: 50%;
+        max-width: 600px;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    input, textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    textarea {
+        height: 100px;
+        resize: vertical;
+    }
+    .btn-submit {
+        background-color: #28a745;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        width: 100%;
+    }
+    .btn-submit:hover {
+        background-color: #218838;
+    }
+    #response {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+    }
+  </style>
+</head>
+<body class="bg-light">
+<h1 class="title">Zak's Get Away Resort</h1>
+
+<!-- ⏺️Navbar -->
+<nav class="navbar navbar-expand-sm navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white d-flex align-items-center" href="#">
+      <img src="img/yurtlogo.png" alt="YurtLogo">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="Yurts.html">Yurts</a></li>
+        <li class="nav-item"><a class="nav-link" href="activities.html">Activities</a></li>
+        <li class="nav-item"><a class="nav-link" href="reservations.html">Reservations</a></li>
+        <li class="nav-item"><a class="nav-link" href="comments.html">Comments</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ⏺️Comment Form -->
+<div class="form-container">
+  <h2 class="text-center">Leave a Comment</h2>
+  <form id="commentForm">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone:</label>
+      <input type="text" id="phone" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="comment">Comment:</label>
+      <textarea id="comment" class="form-control"></textarea>
+    </div>
+
+    <button type="submit" class="btn-submit">Submit</button>
+  </form>
+
+  <p id="response"></p>
+</div>
+
+<!--⏺️use javascript to handle the comment form response-->
+<script>
+  //⏺️attach an event listener to the form that triggers when it is submitted
+ document.getElementById("commentForm").addEventListener("submit", function(event) {
+     //⏺️prevent page reload
+     event.preventDefault();
+
+     //⏺️get and trim whitespace from input values
+     let name = document.getElementById("name").value.trim();
+     let email = document.getElementById("email").value.trim();
+     let comment = document.getElementById("comment").value.trim();
+     //⏺️get the response paragraph element
+     let response = document.getElementById("response");
+
+     //⏺️checks if the comment field is empty
+     if (!comment) {
+         //⏺️error message if no comment is provided
+         response.innerHTML = "❌ Please enter a comment.";
+         response.style.color = "red";
+         return;
+     }
+
+     //⏺️decide on a greeting based on provided name or email, default to "Guest" if both are empty
+     let greeting = name || email || "Guest";
+
+     //⏺️thank you message specialized to the users info
+     response.innerHTML = `✔️ Dear ${greeting}, thank you for your comment!`;
+     response.style.color = "green";
+ });
+
+</script>
+<!--use Popper.js to handle the hamburger-->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaks Resort</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /*style for the title*/
+        .title {
+            font-size: 48px;
+            font-weight: bold;
+            color: #333;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+            text-align: center;
+        }
+        /*navbar style*/
+        .navbar {
+        /* Green */
+            background-color: #228B22 !important;
+            padding-left: 20px;
+        }
+        .navbar-nav {
+            display: flex;
+            /*link spacing*/
+            gap: 20px;
+        }
+        .navbar-nav .nav-link {
+            color: white !important;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.2s ease, text-decoration 0.2s ease;
+        }
+        /*link hover effect*/
+        .navbar-nav .nav-link:hover {
+            color: black !important;
+            text-decoration: underline;
+        }
+        .navbar-brand img {
+            width: 50px;
+            height: 50px;
+            /*space between the links and logo*/
+            margin-right: 10px;
+        }
+
+    </style>
+</head>
+<body class="bg-light">
+<h1 class="title">Zak's Get Away Resort</h1>
+
+<!--⏺️fix the nav bar and align to the left side-->
+<nav class="navbar navbar-expand-sm navbar-dark">
+    <div class="container-fluid">
+        <!--⏺️inlcude logo and always have the bar aligned to the left-->
+        <a class="navbar-brand text-white d-flex align-items-center" href="#">
+            <img src="img/yurtlogo.png" alt="YurtLogo">
+
+        </a>
+
+        <!--⏺️adjust to hamburger if the device breakpoint is smaller than sm-->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!--⏺️include all links in the navbar and in collapsed view-->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="Yurts.html">Yurts</a></li>
+                <li class="nav-item"><a class="nav-link" href="activities.html">Activities</a></li>
+                <li class="nav-item"><a class="nav-link" href="reservations.html">Reservations</a></li>
+                <li class="nav-item"><a class="nav-link" href="comments.html">Comments</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!--⏺️include the content below the green navbar-->
+<div class="content ps-4">
+    <p><strong><br/>Welcome to Zak's Get Away Resort!</strong></p>
+    <p>Kick back and relax at Zak's by enjoying a relaxing getaway with amazing amenities, beautiful scenery, and fun activities for everyone.</p>
+    <ul>
+        <li>Private yurts with decks overlooking the ocean</li>
+        <li>Activities lodge with fireplace and gift shop</li>
+        <li>Nightly fine dining at the Overlook Cafe</li>
+        <li>Heated outdoor pool and whirlpool</li>
+        <li>Guided hiking tours of the redwoods</li>
+        <li>Guided stargazing with provided blankets and telescopes</li>
+        <li>Spa and wellness center for ultimate relaxation</li>
+        <li>Exclusive packages and special offers</li>
+    </ul>
+    <p>Zak's Get Away Resort<br/>
+        One Normal Ave, Montclair<br/>
+        New Jersey NJ 07043<br/>
+        973-111-2222
+    </p>
+</div>
+
+<!--⏺️utilize bootstrap js instead of css to make the hamburger functional-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

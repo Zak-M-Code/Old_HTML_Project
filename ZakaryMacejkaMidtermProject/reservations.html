@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaks Resort</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .title {
+            font-size: 48px;
+            font-weight: bold;
+            color: #333;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+            text-align: center;
+        }
+        .navbar {
+            background-color: #228B22 !important;
+            padding-left: 20px;
+        }
+        .navbar-nav {
+            display: flex;
+            gap: 20px;
+        }
+        .navbar-nav .nav-link {
+            color: white !important;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.2s ease, text-decoration 0.2s ease;
+        }
+        .navbar-nav .nav-link:hover {
+            color: black !important;
+            text-decoration: underline;
+        }
+        .navbar-brand img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px; /* Adds space between logo and menu items */
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .form-label {
+            font-weight: bold;
+        }
+        .form-control {
+            margin-bottom: 10px;
+        }
+        .total-charge {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-light">
+<h1 class="title">Zak's Get Away Resort</h1>
+<nav class="navbar navbar-expand-sm navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white d-flex align-items-center" href="#">
+            <img src="img/yurtlogo.png" alt="YurtLogo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="Yurts.html">Yurts</a></li>
+                <li class="nav-item"><a class="nav-link" href="activities.html">Activities</a></li>
+                <li class="nav-item"><a class="nav-link" href="reservations.html">Reservations</a></li>
+                <li class="nav-item"><a class="nav-link" href="comments.html">Comments</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <h1 class="text-center">Reservation Form</h1>
+
+    <form id="reservationForm">
+        <div class="mb-3">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstName" required autofocus>
+        </div>
+
+        <div class="mb-3">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastName" required>
+        </div>
+        <div class="mb-3">
+            <label for="address" class="form-label">Number & Street</label>
+            <input type="text" class="form-control" id="address" required>
+        </div>
+        <div class="mb-3">
+            <label for="city" class="form-label">City</label>
+            <input type="text" class="form-control" id="city" required>
+        </div>
+        <div class="mb-3">
+            <label for="state" class="form-label">State</label>
+            <input type="text" class="form-control" id="state" required>
+        </div>
+        <div class="mb-3">
+            <label for="zipcode" class="form-label">Zip Code</label>
+            <input type="text" class="form-control" id="zipcode" required>
+        </div>
+        <div class="mb-3">
+            <label for="checkIn" class="form-label">Check-in Date</label>
+            <input type="date" class="form-control" id="checkIn" required>
+        </div>
+        <div class="mb-3">
+            <label for="checkOut" class="form-label">Check-out Date</label>
+            <input type="date" class="form-control" id="checkOut" required>
+        </div>
+        <div class="mb-3">
+            <label for="NumofPeople" class="form-label">Number of People</label>
+            <input type="text" class="form-control" id="NumofPeople" required>
+        </div>
+        <div class="mb-3">
+            <label for="roomType" class="form-label">Room Type</label>
+            <select class="form-control" id="roomType" required>
+                <option value="king">King</option>
+                <option value="queen">Queen</option>
+                <option value="suite">Suite</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="text" class="form-control" id="phone" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">E-mail</label>
+            <input type="text" class="form-control" id="email" required>
+        </div>
+        <div class="mb-3">
+            <label for="paymentmethod" class="form-label">Payment Method</label>
+            <select class="form-control" id="paymentmethod" required>
+                <option value="Visa">Visa</option>
+                <option value="Discover">Discover</option>
+                <option value="Mastercard">Mastercard</option>
+                <option value="Paypal">Paypal</option>
+                <option value="Apple Pay">Apple Pay</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="cardnum" class="form-label">Card Number</label>
+            <input type="text" class="form-control" id="cardnum" required>
+        </div>
+        <div class="mb-3">
+            <label for="srequest" class="form-label">Special Requests</label>
+            <input type="text" placeholder="Enter special accommodation requests here." class="form-control" id="srequest" required>
+        </div>
+        <div class="total-charge" id="totalCharge" style="margin-top: 20px;"></div>
+        <button type="submit" class="btn btn-primary w-100">Calculate Total</button>
+        <button type="button" class="btn btn-success w-100" id="submitButton" style="margin-top: 10px;">Submit</button>
+    </form>
+
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    //⏺️set the room prices
+    const roomPrices = {
+        king: 200,
+        queen: 150,
+        suite: 300
+    };
+    //⏺️set tax rate
+    const taxRate = 0.06625;
+
+    //⏺️include an event listener to wait for form submission
+    document.getElementById('reservationForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        //⏺️get check in and check out dates
+        const checkIn = new Date(document.getElementById('checkIn').value);
+        const checkOut = new Date(document.getElementById('checkOut').value);
+        //⏺️get the chosen room value
+        const roomType = document.getElementById('roomType').value;
+        //⏺️at least one night has to be selected
+        //⏺️calculate the number of nights
+        const numNights = Math.max((checkOut - checkIn) / (1000 * 3600 * 24), 1);
+        //⏺️get the room price of the chosen room
+        const roomPrice = roomPrices[roomType];
+        //⏺️calculate the total
+        const subtotal = roomPrice * numNights;
+        //⏺️add tax to the total
+        const totalPrice = subtotal * (1 + taxRate);
+
+        //⏺️display the total using an html element
+        document.getElementById('totalCharge').textContent = `Total Charge: $${totalPrice.toFixed(2)}`;
+    });
+    //⏺️include an event listener to handle when the submit button is clicked
+    document.getElementById('submitButton').addEventListener('click', function() {
+        //⏺️get all values entered by the user
+        const formData = {
+            firstName: document.getElementById('firstName').value,
+            lastName: document.getElementById('lastName').value,
+            address: document.getElementById('address').value,
+            city: document.getElementById('city').value,
+            state: document.getElementById('state').value,
+            zipcode: document.getElementById('zipcode').value,
+            checkIn: document.getElementById('checkIn').value,
+            checkOut: document.getElementById('checkOut').value,
+            numPeople: document.getElementById('NumofPeople').value,
+            roomType: document.getElementById('roomType').value,
+            phone: document.getElementById('phone').value,
+            email: document.getElementById('email').value,
+            paymentMethod: document.getElementById('paymentmethod').value,
+            cardNum: document.getElementById('cardnum').value,
+            specialRequest: document.getElementById('srequest').value,
+            //⏺️pull the displayed total and store it
+            total: document.getElementById('totalCharge').textContent.replace('Total Charge: $', '')
+        };
+        //⏺️store the data in local storage
+        localStorage.setItem('reservationData', JSON.stringify(formData));
+        //⏺️redirect the user to the thankyou/confirmation page
+        window.location.href = 'thankyou.html';
+    });
+</script>
+</body>
+</html>
