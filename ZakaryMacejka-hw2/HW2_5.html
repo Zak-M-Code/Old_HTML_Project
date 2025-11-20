@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Circle with Shadow</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+        }
+        .circle {
+            width: 100px;
+            height: 100px;
+            background: -webkit-radial-gradient(center, lightgreen, green);
+            background: -moz-radial-gradient(center, lightgreen, green);
+            background: radial-gradient(center, lightgreen, green);
+            border-radius: 50%;
+            position: absolute;
+            top: 200px;
+            left: 200px;
+            box-shadow: -10px 10px 20px black;
+            transition: left 1s ease-in-out, box-shadow 1s ease-in-out;
+        }
+        .circle:hover {
+            left: 700px;
+            box-shadow: 10px 10px 20px black;
+        }
+    </style>
+</head>
+<body>
+<div class="circle"></div>
+</body>
+</html>
